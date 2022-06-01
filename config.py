@@ -53,9 +53,9 @@ keys = [
     
     
     Key([mod], "c", lazy.spawncmd(browser), desc="spawn browser 1"),
-    Key([mod, "shift" ], "c", lazy.spawncmd(), desc="spawn browser 2"),
+    Key([mod, "shift" ], "c", lazy.spawn("librewolf"), desc="spawn browser 2"),
    
-    Key([mod], "d", lazy.spawncmd(chat), desc="open chat"),
+    Key([mod], "d", lazy.spawn("discord"), desc="spawn chat"),
 
 ]
 
