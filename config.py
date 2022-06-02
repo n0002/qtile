@@ -56,7 +56,8 @@ keys = [
     Key([mod, "shift" ], "c", lazy.spawn("librewolf"), desc="spawn browser 2"),
    
     Key([mod], "d", lazy.spawn("discord"), desc="spawn chat"),
-
+    
+    
 ]
 
 groups = [
@@ -124,6 +125,11 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+
+                widget.Battery(
+                    format='{char} {percent:2.0%}'
+                    ),
+
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
