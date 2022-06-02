@@ -125,6 +125,10 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                
+                widget.Memory(
+                    format='{MemUsed: .0f} {mm}/{MemTotal: .0f}{mm}'
+                    ),
 
                 widget.Battery(
                     format='{char} {percent:2.0%}'
