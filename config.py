@@ -4,7 +4,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = "st"
+terminal = "xfce4-terminal"
 browser = "brave" 
 browser2 = "librewolf"
 chat = "discord"
@@ -61,14 +61,14 @@ keys = [
 ]
 
 groups = [
-        Group(name='1', label="HOME"),
-        Group(name='2', label="DEV"),
-        Group(name='3', label="PLAY"),
-        Group(name='4', label="CHAT",
+        Group(name='1', label="1"),
+        Group(name='2', label="2"),
+        Group(name='3', label="3"),
+        Group(name='4', label="4",
         matches=[Match(wm_class=["discord"])]),
-        Group(name='5', label="SYS"),
-        Group(name='6', label="T1"),
-        Group(name='7', label="T2"),
+        Group(name='5', label="5"),
+        Group(name='6', label="6"),
+        Group(name='7', label="7"),
 ]
 
 for i in groups:
@@ -115,8 +115,18 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    fontsize=14,
+                    #active=""
+                    #inactive=""
+                    #foreground=""
+                   # rounded=True,
+                    margin=4,
+                    highlight_method="line",
+                   # highlight_color="#ffffff",
+                    ),
+
+                
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -127,16 +137,60 @@ screens = [
                 ),
                 
                 widget.Memory(
-                    format='{MemUsed: .0f} {mm}/{MemTotal: .0f}{mm}'
+                   # format='{MemUsed: .0f} {mm}/{MemTotal: .0f}{mm}'
+                    format='{MemUsed: .0f} {mm}'
                     ),
-
+               
+                widget.Sep(
+                    line_width=2,
+                    size_percent=50,
+                    ),
+                
+                widget.Spacer(
+                    length=10
+                    ),
+                
                 widget.Battery(
                     format='{char} {percent:2.0%}'
                     ),
+                
+                widget.Spacer(
+                    length=10
+                    ),
 
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                #widget.Systray(),
+
+                widget.Sep(
+                    line_width=2,
+                    size_percent=50,
+                    ),
+                
+
+                widget.Spacer(
+                    length=10
+                    ),
+
+               widget.Clock(format="%m/%d/%Y %a %I:%M %p"),
+              
+               widget.Spacer(
+                   length=10
+                   ),
+             
+               widget.Sep(
+                    line_width=2,
+                    size_percent=50,
+                    ),
+
+               widget.CurrentLayout(
+                       ),
+
+               widget.Systray(),
+              
+               widget.Spacer(
+                   length=10
+                   ),
+
+               #widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
