@@ -52,7 +52,7 @@ keys = [
     Key([mod], "space", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
     
-    Key([mod], "c", lazy.spawncmd(browser), desc="spawn browser 1"),
+    Key([mod], "c", lazy.spawn(browser), desc="spawn browser 1"),
     Key([mod, "shift" ], "c", lazy.spawn("librewolf"), desc="spawn browser 2"),
    
     Key([mod], "d", lazy.spawn("discord"), desc="spawn chat"),
@@ -117,7 +117,8 @@ screens = [
             [
                 widget.GroupBox(
                     fontsize=14,
-                    #active=""
+                    active="#ffffff",
+                    borderwidth = 5,
                     #inactive=""
                     #foreground=""
                    # rounded=True,
@@ -128,7 +129,12 @@ screens = [
 
                 
                 widget.Prompt(),
-                widget.WindowName(),
+               
+                widget.WindowName(
+                    background = "#fccfff",
+                    foreground = "#000000",
+                    ),
+                
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -157,8 +163,6 @@ screens = [
                 widget.Spacer(
                     length=10
                     ),
-
-                #widget.Systray(),
 
                 widget.Sep(
                     line_width=2,
