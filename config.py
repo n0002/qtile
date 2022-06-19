@@ -41,6 +41,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
+
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
    
@@ -128,7 +129,10 @@ screens = [
                     ),
 
                 
-                widget.Prompt(),
+                widget.Prompt(
+                    background = "#fccfff",
+                    foreground = "#000000",
+                    ),
                
                 widget.WindowName(
                     background = "#fccfff",
